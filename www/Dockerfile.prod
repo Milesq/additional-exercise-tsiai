@@ -1,0 +1,13 @@
+FROM node:14.15.1
+
+WORKDIR /code
+
+COPY package.json .
+COPY yarn.lock .
+COPY fix-parcel-plugin-svelte-#153.js .
+
+RUN yarn
+
+COPY . .
+
+CMD ["yarn", "serve"]

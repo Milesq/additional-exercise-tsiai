@@ -1,0 +1,12 @@
+{
+  "endOfLine": "crlf",
+  "semi": true,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "es5",
+  "arrowParens": "avoid",
+  "printWidth": 80,
+  "svelteStrictMode": false,
+  "svelteSortOrder": "markup-scripts-styles",
+  "plugins": ["prettier-plugin-svelte"]
+}

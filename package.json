@@ -1,0 +1,14 @@
+{
+  "name": "additional-exercise-tsiai",
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "yarn --cwd packages/api lint-staged && yarn --cwd packages/www lint-staged"
+    }
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "husky": "^4.3.0"
+  }
+}

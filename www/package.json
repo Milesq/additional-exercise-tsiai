@@ -1,0 +1,60 @@
+{
+  "name": "e14-webpage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "serve": "parcel serve public/*",
+    "build": "parcel build public/* --no-source-maps",
+    "lint": "yarn lint:js:fix && yarn lint:style:fix && yarn prettier",
+    "lint:js": "eslint . --ext .js,.svelte",
+    "lint:js:fix": "eslint . --ext .js,.svelte --fix",
+    "lint:style": "stylelint src/*.{svelte,scss}",
+    "lint:style:fix": "stylelint src/*.{svelte,scss} --fix",
+    "prettier": "prettier src --write",
+    "postinstall": "node fix-parcel-plugin-svelte-#153.js"
+  },
+  "keywords": [],
+  "author": "Milesq <wmilosz88@gmail.com>",
+  "lint-staged": {
+    "*.{js,svelte}": "eslint",
+    "*.{scss,svelte}": "stylelint"
+  },
+  "dependencies": {
+    "bulma": "^0.9.1",
+    "graphql": "^15.4.0",
+    "graphql-request": "^3.3.0",
+    "svelte": "^3.29.7",
+    "svelte-spa-router": "^3.0.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.7",
+    "@babel/generator": "^7.12.5",
+    "@babel/parser": "^7.12.7",
+    "@babel/preset-env": "^7.12.7",
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/svelte": "^3.0.0",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.6.3",
+    "eslint": "7.14.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-jest": "^24.1.3",
+    "eslint-plugin-svelte3": "^2.7.3",
+    "jest": "^26.6.3",
+    "lint-staged": "^10.5.1",
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-svelte": "^4.0.6",
+    "prettier": "^2.2.0",
+    "prettier-plugin-svelte": "1.4.1",
+    "sass": "^1.29.0",
+    "stylelint": "^13.7.2",
+    "stylelint-config-idiomatic-order": "^8.1.0",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-scss": "^3.18.0",
+    "svelte-jester": "^1.1.5"
+  }
+}
