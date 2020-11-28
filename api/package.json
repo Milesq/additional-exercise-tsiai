@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "serve": "nodemon",
+    "serve": "nodemon -e js,gql",
     "start": "node src/main.js",
     "coverage": "jest --coverage",
     "infect": "stryker run",

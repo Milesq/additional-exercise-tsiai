@@ -1,18 +1,19 @@
-const { gql } = require('apollo-server')
+const { readFileSync } = require('fs')
+const { resolve } = require('path')
+const { createWord, words, updateWord, deleteWord } = require('./resolvers')
 
-const schema = gql`
-  schema {
-    query: Query
-  }
-
-  type Query {
-    hello: Int
-  }
-`
+const schema = readFileSync(resolve(__dirname, 'schema.gql'), {
+  encoding: 'utf-8',
+})
 
 const resolvers = {
   Query: {
-    hello: () => 2
+    words,
+  },
+  Mutation: {
+    createWord,
+    updateWord,
+    deleteWord,
   },
 }
 

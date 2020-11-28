@@ -1,0 +1,25 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Query {
+  words: [Word!]!
+}
+
+type Mutation {
+  createWord(input: CreateWordInput!): Word!
+  updateWord(input: CreateWordInput!): Word!
+  deleteWord(input: CreateWordInput!): Word!
+}
+
+input CreateWordInput {
+  original: String!
+  english: String!
+}
+
+type Word {
+  id: ID!
+  english: String!
+  original: String!
+}
