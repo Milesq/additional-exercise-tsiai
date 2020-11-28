@@ -11,8 +11,14 @@ async function createWord(parent, { input: { original, english } }) {
   return createdWord
 }
 
-function words() {
-  return Word.find()
+async function words(parent, { id }) {
+  if (id) {
+    const doc = await Word.findById(id)
+
+    return doc ? [doc] : null
+  } else {
+    return Word.find()
+  }
 }
 
 function updateWord() {}
