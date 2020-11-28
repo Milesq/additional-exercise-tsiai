@@ -9,8 +9,8 @@ type Query {
 
 type Mutation {
   createWord(input: CreateWordInput!): Word!
-  updateWord(input: CreateWordInput!): Word!
-  deleteWord(input: CreateWordInput!): Word!
+  updateWord(id: ID!, input: CreateWordInput!): Word!
+  deleteWord(id: ID!): Boolean!
 }
 
 input CreateWordInput {

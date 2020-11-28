@@ -17,7 +17,17 @@ function words() {
 
 function updateWord() {}
 
-function deleteWord() {}
+async function deleteWord(parent, { id }) {
+  const word = await Word.findById(id)
+
+  try {
+    await word.remove()
+  } catch {
+    return false
+  }
+
+  return true
+}
 
 module.exports = {
   createWord,
