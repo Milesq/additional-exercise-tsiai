@@ -12,12 +12,7 @@ async function createWord(parent, { input: { original, english } }) {
 }
 
 function words() {
-  return [
-    {
-      english: 'ok',
-      original: 'ok',
-    },
-  ]
+  return Word.find()
 }
 
 function updateWord() {}
