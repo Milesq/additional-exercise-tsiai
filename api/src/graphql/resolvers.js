@@ -1,9 +1,14 @@
-function createWord(parent, args) {
-  console.log(args)
+const Word = require('../model/Word')
 
-  return {
-    id: 'sada876',
-  }
+async function createWord(parent, { input: { original, english } }) {
+  const createdWord = await new Word({
+    original,
+    english,
+  }).save()
+
+  createdWord.id = createWord._id
+
+  return createdWord
 }
 
 function words() {
