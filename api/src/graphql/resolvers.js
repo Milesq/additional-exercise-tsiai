@@ -11,14 +11,20 @@ async function createWord(parent, { input: { original, english } }) {
   return createdWord
 }
 
-async function words(parent, { id }) {
-  if (id) {
-    const doc = await Word.findById(id)
+function words(parent, { id, limit }) {
+  async function _internalWords(id) {
+    if (id) {
+      const doc = await Word.findById(id)
 
-    return doc ? [doc] : null
-  } else {
-    return Word.find()
+      return doc ? [doc] : null
+    } else {
+      return Word.find()
+    }
   }
+
+  return _internalWords(id)
+    .then(words => words.slice(0, limit))
+    .catch(() => null)
 }
 
 async function updateWord(parent, { id, input }) {
