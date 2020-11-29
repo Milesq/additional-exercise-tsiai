@@ -21,7 +21,12 @@ async function words(parent, { id }) {
   }
 }
 
-function updateWord() {}
+async function updateWord(parent, { id, input }) {
+  const updatedDoc = await Word.findByIdAndUpdate(id, input)
+  updatedDoc.id = updatedDoc._id
+
+  return updatedDoc
+}
 
 async function deleteWord(parent, { id }) {
   const word = await Word.findById(id)
