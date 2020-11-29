@@ -4,7 +4,7 @@ schema {
 }
 
 type Query {
-  words(id: ID): [Word!]
+  words(id: ID, limit: Int): [Word!]
 }
 
 type Mutation {

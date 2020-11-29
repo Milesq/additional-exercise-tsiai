@@ -45,6 +45,19 @@ describe('listing words', () => {
     expect(resp.data.words.length).toBe(2)
   })
 
+  it('returns limited value', async () => {
+    const getWordsQuery = gql`
+      {
+        words(limit: 1) {
+          id
+        }
+      }
+    `
+
+    const resp = await query({ query: getWordsQuery })
+    expect(resp.data.words.length).toBe(1)
+  })
+
   it('returns specific result', async () => {
     const getWordsQuery = gql`
       query($ID: ID!) {
