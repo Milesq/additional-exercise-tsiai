@@ -9,13 +9,18 @@ type Query {
 
 type Mutation {
   createWord(input: CreateWordInput!): Word!
-  updateWord(id: ID!, input: CreateWordInput!): Word!
+  updateWord(id: ID!, input: UpdateWordInput!): Word!
   deleteWord(id: ID!): Boolean!
 }
 
 input CreateWordInput {
   original: String!
   english: String!
+}
+
+input UpdateWordInput {
+  original: String
+  english: String
 }
 
 type Word {
