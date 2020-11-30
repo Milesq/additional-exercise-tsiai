@@ -2,7 +2,14 @@
   <div class="tile is-ancestor section">
     <div class="tile is-parent">
       <div class="tile is-child">
-        <ShowAll />
+        <ShowAll
+          on:select={select}
+          {data}
+          fields={[
+            { name: 'english', label: 'Angielski' },
+            { name: 'original', label: 'Polski' },
+          ]}
+        />
       </div>
     </div>
 
@@ -21,4 +28,15 @@
   import ShowAll from "./crud/ShowAll.svelte";
   import Edit from "./crud/Edit.svelte";
   import Create from "./crud/Create.svelte";
+
+  const data = [
+    { id: 'dasddfghdg', original: 'robić', english: 'do' },
+    { id: 'sddsadahas', original: 'jeść', english: 'eat' },
+    { id: 'dsfgty46us', original: 'spotkać', english: 'met' },
+    { id: 'fvgedhjvfj', original: 'zrobione', english: 'made' },
+  ];
+
+  function select() {
+    console.log(arguments)
+  }
 </script>
