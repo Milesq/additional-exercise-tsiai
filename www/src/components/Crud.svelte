@@ -1,11 +1,24 @@
-<div class="navbar is-primary is-spaced">
-  <div class="navbar-brand">
-    <div class="navbar-item is-size-4">
-      <JumpingText text="CRUD" />
+<div class="container">
+  <div class="tile is-ancestor section">
+    <div class="tile is-parent">
+      <div class="tile is-child">
+        <ShowAll />
+      </div>
+    </div>
+
+    <div class="tile is-vertical is-parent">
+      <div class="tile is-child">
+        <Edit />
+      </div>
+      <div class="tile is-child">
+        <Create />
+      </div>
     </div>
   </div>
 </div>
 
 <script>
-  import JumpingText from "./JumpingText.svelte";
+  import ShowAll from "./crud/ShowAll.svelte";
+  import Edit from "./crud/Edit.svelte";
+  import Create from "./crud/Create.svelte";
 </script>
