@@ -1,2 +1,6 @@
 @import '../node_modules/bulma/css/bulma.min.css';
 @import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+
+.is-transitioned {
+  transition: all 0.3s ease;
+}
