@@ -1,11 +1,10 @@
 <div class="card mt-6">
-  <form class="card-content">
+  <form class="card-content" on:click|preventDefault>
     <div class="field">
-      <!-- svelte-ignore a11y-label-has-associated-control -->
-      <label class="label">Login</label>
+      <h2 class="subtitle">Dodawanie</h2>
       <div class="control has-icons-left">
         <input
-          class="input is-info"
+          class="input is-primary"
           type="text"
           placeholder="Login"
         />
@@ -14,11 +13,9 @@
         </span>
       </div>
 
-      <a
-        href="index.php"
+      <button
         class="
           my-4
-          is-full
           button
           is-primary
           is-outlined
@@ -26,7 +23,7 @@
           is-transitioned
         ">
         Dodaj
-      </a>
+      </button>
     </div>
   </form>
 </div>
