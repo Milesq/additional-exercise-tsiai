@@ -3,7 +3,6 @@
     <div class="tile is-parent">
       <div class="tile is-child">
         <ShowAll
-          on:select={select}
           {data}
           fields={[
             { name: 'english', label: 'Angielski' },
@@ -25,9 +24,13 @@
 </div>
 
 <script>
+  import { setContext } from 'svelte';
+  import { writable } from 'svelte/store';
   import ShowAll from "./crud/ShowAll.svelte";
   import Edit from "./crud/Edit.svelte";
   import Create from "./crud/Create.svelte";
+
+  setContext('selectedItem', writable(-1));
 
   const data = [
     { id: 'dasddfghdg', original: 'robić', english: 'do' },
@@ -35,8 +38,4 @@
     { id: 'dsfgty46us', original: 'spotkać', english: 'met' },
     { id: 'fvgedhjvfj', original: 'zrobione', english: 'made' },
   ];
-
-  function select() {
-    console.log(arguments)
-  }
 </script>

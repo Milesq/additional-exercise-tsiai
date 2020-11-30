@@ -12,8 +12,8 @@
       {#each data as word, i}
         <tr
           class="is-clickable"
-          class:is-selected={i == selectedItem}
-          on:click={() => select(i)}
+          class:is-selected={i == $selectedItem}
+          on:click={() => selectedItem.set(i)}
         >
           <th>{i + 1}</th>
           {#each fields as field}
@@ -35,13 +35,6 @@
   export let data = [];
   export let fields = [];
 
-  import { createEventDispatcher } from 'svelte';
-  const dispatch = createEventDispatcher();
-
-  let selectedItem = -1;
-
-  function select(i) {
-    selectedItem = i;
-    dispatch('select', i);
-  }
+  import { getContext } from 'svelte';
+  const selectedItem = getContext('selectedItem');
 </script>
