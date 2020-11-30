@@ -14,5 +14,6 @@ services:
       - ./www:/code
     ports:
       - 1234:1234
+      - 42237:42237
     depends_on:
       - api

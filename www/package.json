@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "serve": "parcel serve public/*",
+    "serve": "parcel serve public/* --hmr-port 42237",
     "build": "parcel build public/* --no-source-maps",
     "lint": "yarn lint:js:fix && yarn lint:style:fix && yarn prettier",
     "lint:js": "eslint . --ext .js,.svelte",
