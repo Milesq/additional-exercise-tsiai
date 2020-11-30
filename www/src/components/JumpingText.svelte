@@ -35,7 +35,7 @@ $textItemCount: 4;
 
 @keyframes jump {
   from { transform: translateY(0) scale(1.25, 0.7); }
-  50% { transform: translateY(-90%) scale(1, 1); }
+  50% { transform: translateY(-50%) scale(1, 1); }
   80% { transform: translateY(30%) scale(1.25, .7); }
   to { transform: translateY(0) scale(1, 1); }
 }
