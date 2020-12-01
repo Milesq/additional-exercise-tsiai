@@ -1,0 +1,33 @@
+module.exports = {
+  env: {
+    browser: true,
+    commonjs: true,
+    es6: true,
+  },
+  globals: {
+    process: 'readonly',
+  },
+  plugins: ['svelte3'],
+  parser: 'babel-eslint',
+  extends: ['eslint:recommended', 'prettier'],
+  settings: {
+    'svelte3/ignore-styles': () => true,
+    'import/resolver': {
+      node: {
+        paths: ['./src'],
+        extensions: ['.js', '.svelte'],
+      },
+    },
+  },
+  overrides: [
+    {
+      files: ['**/*.svelte'],
+      processor: 'svelte3/svelte3',
+    },
+  ],
+  rules: {
+    'prefer-const': 'warn',
+    'no-unused-vars': 'warn',
+    'no-console': 'off',
+  },
+};
