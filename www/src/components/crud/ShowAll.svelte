@@ -12,8 +12,8 @@
       {#each data as word, i}
         <tr
           class="is-clickable"
-          class:is-selected={i == $selectedItem}
-          on:click={() => selectedItem.set(i)}
+          class:is-selected={i == selectedItem}
+          on:click={() => (selectedItem = i)}
         >
           <th>{i + 1}</th>
           {#each fields as field}
@@ -34,7 +34,5 @@
 <script>
   export let data = [];
   export let fields = [];
-
-  import { getContext } from 'svelte';
-  const selectedItem = getContext('selectedItem');
+  export let selectedItem = -1;
 </script>

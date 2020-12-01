@@ -5,13 +5,14 @@
         <ShowAll
           {data}
           {fields}
+          bind:selectedItem
         />
       </div>
     </div>
 
     <div class="tile is-vertical is-parent">
       <div class="tile is-child">
-        <Edit {data} {fields} on:update={update} />
+        <Edit data={data[selectedItem] || {}} {fields} on:save={update} />
       </div>
       <div class="tile is-child">
         <Create />
@@ -21,16 +22,14 @@
 </div>
 
 <script>
-  import { setContext } from 'svelte';
-  import { writable } from 'svelte/store';
   import ShowAll from "./crud/ShowAll.svelte";
   import Edit from "./crud/Edit.svelte";
   import Create from "./crud/Create.svelte";
+  let selectedItem = -1
 
-  setContext('selectedItem', writable(-1));
   const fields = [
-    { name: 'english', label: 'Angielski' },
-    { name: 'original', label: 'Polski' },
+    { name: 'english', label: 'Angielski', icon: 'fas fa-globe-africa' },
+    { name: 'original', label: 'Polski', icon: 'fas fa-language' },
   ];
 
   const data = [
@@ -40,5 +39,8 @@
     { id: 'fvgedhjvfj', original: 'zrobione', english: 'made' },
   ];
 
-  function update(updated) {}
+  function update({ detail }) {
+    data[selectedItem] = detail
+    selectedItem = -1
+  }
 </script>

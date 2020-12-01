@@ -8,18 +8,19 @@
         <label class="label">{field.label}</label>
         <div class="control has-icons-left">
           <input
+            bind:value={data[field.name]}
             class="input is-info"
             type="text"
-            placeholder="Login"
+            disabled={!data.id}
           />
           <span class="icon is-small is-left">
-            <i class="fas fa-user"></i>
+            <i class={field.icon}></i>
           </span>
         </div>
       {/each}
 
       <button
-        on:click={() => dispatch('save')}
+        on:click={() => dispatch('save', data)}
         class="
           my-4
           button
@@ -35,7 +36,7 @@
 </div>
 
 <script>
-  export let data = [];
+  export let data = {};
   export let fields = [];
 
   import { createEventDispatcher } from 'svelte';
