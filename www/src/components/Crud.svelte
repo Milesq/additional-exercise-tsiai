@@ -4,17 +4,14 @@
       <div class="tile is-child">
         <ShowAll
           {data}
-          fields={[
-            { name: 'english', label: 'Angielski' },
-            { name: 'original', label: 'Polski' },
-          ]}
+          {fields}
         />
       </div>
     </div>
 
     <div class="tile is-vertical is-parent">
       <div class="tile is-child">
-        <Edit />
+        <Edit {data} {fields} on:update={update} />
       </div>
       <div class="tile is-child">
         <Create />
@@ -31,6 +28,10 @@
   import Create from "./crud/Create.svelte";
 
   setContext('selectedItem', writable(-1));
+  const fields = [
+    { name: 'english', label: 'Angielski' },
+    { name: 'original', label: 'Polski' },
+  ];
 
   const data = [
     { id: 'dasddfghdg', original: 'robić', english: 'do' },
@@ -38,4 +39,6 @@
     { id: 'dsfgty46us', original: 'spotkać', english: 'met' },
     { id: 'fvgedhjvfj', original: 'zrobione', english: 'made' },
   ];
+
+  function update(updated) {}
 </script>
