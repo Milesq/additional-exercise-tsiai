@@ -35,9 +35,8 @@ async function updateWord(parent, { id, input }) {
 }
 
 async function deleteWord(parent, { id }) {
-  const word = await Word.findById(id)
-
   try {
+    const word = await Word.findById(id)
     await word.remove()
   } catch {
     return false
