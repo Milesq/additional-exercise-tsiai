@@ -17,7 +17,7 @@
       {/each}
 
       <button
-        on:click={() => dispatch('create', data)}
+        on:click={create}
         class="
           my-4
           button
@@ -34,8 +34,13 @@
 
 <script>
   export let fields = [];
-  const data = {};
+  let data = {};
 
   import { createEventDispatcher } from 'svelte';
   const dispatch = createEventDispatcher();
+
+  function create() {
+    dispatch('create', data);
+    data = {};
+  }
 </script>

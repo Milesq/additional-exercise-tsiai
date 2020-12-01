@@ -18,9 +18,12 @@
 </div>
 
 <script>
+  import { onMount } from 'svelte';
+  import pick from 'lodash.pick';
   import ShowAll from './crud/ShowAll.svelte';
   import Edit from './crud/Edit.svelte';
   import Create from './crud/Create.svelte';
+  import query, { gql } from '../utils/graphqlClient';
   let selectedItem = -1;
 
   const fields = [
@@ -28,23 +31,64 @@
     { name: 'original', label: 'Polski', icon: 'fas fa-language' },
   ];
 
-  let data = [
-    { id: 'dasddfghdg', original: 'robić', english: 'do' },
-    { id: 'sddsadahas', original: 'jeść', english: 'eat' },
-    { id: 'dsfgty46us', original: 'spotkać', english: 'met' },
-    { id: 'fvgedhjvfj', original: 'zrobione', english: 'made' },
-  ];
+  let data = [];
 
-  function create({ detail }) {
-    data = [...data, detail];
+  onMount(async () => {
+    data = (
+      await query(gql`
+        query {
+          words {
+            id
+            english
+            original
+          }
+        }
+      `)
+    ).words;
+  });
+
+  async function create({ detail }) {
+    const createWordQuery = gql`
+      mutation($detail: CreateWordInput!) {
+        createWord(input: $detail) {
+          id
+        }
+      }
+    `;
+
+    const {
+      createWord: { id },
+    } = await query(createWordQuery, { detail });
+
+    data = [...data, { ...detail, id }];
   }
 
   function update({ detail }) {
+    const updateWordQuery = gql`
+      mutation($id: ID!, $detail: UpdateWordInput!) {
+        updateWord(id: $id, input: $detail) {
+          id
+        }
+      }
+    `;
+
+    query(updateWordQuery, {
+      id: data[selectedItem].id,
+      detail: pick(detail, ['english', 'original']),
+    }).then(console.log);
+
     data[selectedItem] = detail;
     selectedItem = -1;
   }
 
   function remove({ detail: i }) {
+    const deleteWordQuery = gql`
+      mutation($id: ID!) {
+        deleteWord(id: $id)
+      }
+    `;
+
+    query(deleteWordQuery, { id: data[i].id }).then(console.log);
     data = [...data.slice(0, i), ...data.slice(i + 1)];
   }
 </script>
