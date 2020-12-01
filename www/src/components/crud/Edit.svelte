@@ -1,4 +1,4 @@
-<div class="card mt-6">
+<div class="card">
   <form class="card-content" on:submit|preventDefault>
     <div class="field">
       <h2 class="subtitle">Edycja</h2>
