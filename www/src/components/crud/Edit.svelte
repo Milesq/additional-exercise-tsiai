@@ -11,11 +11,8 @@
             bind:value={data[field.name]}
             class="input is-info"
             type="text"
-            disabled={!data.id}
-          />
-          <span class="icon is-small is-left">
-            <i class={field.icon}></i>
-          </span>
+            disabled={!data.id} />
+          <span class="icon is-small is-left"> <i class={field.icon} /> </span>
         </div>
       {/each}
 

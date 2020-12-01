@@ -2,12 +2,7 @@
   <div class="tile is-ancestor section">
     <div class="tile is-parent">
       <div class="tile is-child">
-        <ShowAll
-          {data}
-          {fields}
-          bind:selectedItem
-          on:remove={remove}
-        />
+        <ShowAll {data} {fields} bind:selectedItem on:remove={remove} />
       </div>
     </div>
 
@@ -23,9 +18,9 @@
 </div>
 
 <script>
-  import ShowAll from "./crud/ShowAll.svelte";
-  import Edit from "./crud/Edit.svelte";
-  import Create from "./crud/Create.svelte";
+  import ShowAll from './crud/ShowAll.svelte';
+  import Edit from './crud/Edit.svelte';
+  import Create from './crud/Create.svelte';
   let selectedItem = -1;
 
   const fields = [
@@ -50,6 +45,6 @@
   }
 
   function remove({ detail: i }) {
-    data = [...data.slice(0, i), ...data.slice(i + 1)]
+    data = [...data.slice(0, i), ...data.slice(i + 1)];
   }
 </script>

@@ -11,11 +11,8 @@
             bind:value={data[field.name]}
             class="input is-primary"
             type="text"
-            placeholder={field.label}
-          />
-          <span class="icon is-small is-left">
-            <i class={field.icon}></i>
-          </span>
+            placeholder={field.label} />
+          <span class="icon is-small is-left"> <i class={field.icon} /> </span>
         </div>
       {/each}
 
@@ -37,7 +34,7 @@
 
 <script>
   export let fields = [];
-  const data = {}
+  const data = {};
 
   import { createEventDispatcher } from 'svelte';
   const dispatch = createEventDispatcher();

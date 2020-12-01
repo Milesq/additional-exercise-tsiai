@@ -6,7 +6,7 @@
         {#each fields as field}
           <th>{field.label}</th>
         {/each}
-        <th></th>
+        <th />
       </tr>
     </thead>
     <tbody>
@@ -14,14 +14,13 @@
         <tr
           class="is-clickable"
           class:is-selected={i == selectedItem}
-          on:click={() => (selectedItem = i)}
-        >
+          on:click={() => (selectedItem = i)}>
           <th>{i + 1}</th>
           {#each fields as field}
             <td>{word[field.name]}</td>
           {/each}
           <td>
-            <button on:click={() => dispatch('remove', i)} class="delete"></button>
+            <button on:click={() => dispatch('remove', i)} class="delete" />
           </td>
         </tr>
       {/each}
@@ -29,9 +28,7 @@
   </table>
 
   <div class="has-text-weight-bold has-text-centered">
-    {#if !data.length}
-      Brak danych
-    {/if}
+    {#if !data.length}Brak danych{/if}
   </div>
 </div>
 
@@ -40,6 +37,6 @@
   export let fields = [];
   export let selectedItem = -1;
 
-  import { createEventDispatcher } from "svelte";
-  const dispatch = createEventDispatcher()
+  import { createEventDispatcher } from 'svelte';
+  const dispatch = createEventDispatcher();
 </script>

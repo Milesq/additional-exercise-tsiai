@@ -9,6 +9,6 @@
 <Crud />
 
 <script>
-  import Crud from "../components/Crud.svelte";
-  import JumpingText from "../components/JumpingText.svelte";
+  import Crud from '../components/Crud.svelte';
+  import JumpingText from '../components/JumpingText.svelte';
 </script>
