@@ -6,6 +6,7 @@
         {#each fields as field}
           <th>{field.label}</th>
         {/each}
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -19,6 +20,9 @@
           {#each fields as field}
             <td>{word[field.name]}</td>
           {/each}
+          <td>
+            <button on:click={() => dispatch('remove', i)} class="delete"></button>
+          </td>
         </tr>
       {/each}
     </tbody>
@@ -35,4 +39,7 @@
   export let data = [];
   export let fields = [];
   export let selectedItem = -1;
+
+  import { createEventDispatcher } from "svelte";
+  const dispatch = createEventDispatcher()
 </script>
