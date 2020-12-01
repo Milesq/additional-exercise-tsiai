@@ -15,7 +15,7 @@
 <style lang="scss">
   @use 'sass:list';
 
-  $textItemCount: 4;
+  $textItemCount: 20;
 
   .text-animation {
     &__item {
