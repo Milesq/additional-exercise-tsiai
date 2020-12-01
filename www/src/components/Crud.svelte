@@ -15,7 +15,7 @@
         <Edit data={data[selectedItem] || {}} {fields} on:save={update} />
       </div>
       <div class="tile is-child">
-        <Create />
+        <Create {fields} on:create={create} />
       </div>
     </div>
   </div>
@@ -32,7 +32,7 @@
     { name: 'original', label: 'Polski', icon: 'fas fa-language' },
   ];
 
-  const data = [
+  let data = [
     { id: 'dasddfghdg', original: 'robić', english: 'do' },
     { id: 'sddsadahas', original: 'jeść', english: 'eat' },
     { id: 'dsfgty46us', original: 'spotkać', english: 'met' },
@@ -40,7 +40,11 @@
   ];
 
   function update({ detail }) {
-    data[selectedItem] = detail
-    selectedItem = -1
+    data[selectedItem] = detail;
+    selectedItem = -1;
+  }
+
+  function create({ detail }) {
+    data = [...data, detail];
   }
 </script>
