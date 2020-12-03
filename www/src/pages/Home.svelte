@@ -16,12 +16,7 @@
       <div class="navbar-item has-dropdown is-hoverable">
         <div class="navbar-link">Wyniki</div>
 
-        <div class="navbar-dropdown">
-          <div class="navbar-item">Poprawnych</div>
-          <hr class="navbar-divider" />
-          <div class="navbar-item">Rzędem: 5</div>
-          <div class="navbar-item">Razem: 19</div>
-        </div>
+        <Points />
       </div>
     </div>
   </div>
@@ -32,6 +27,7 @@
 <script>
   import Router from 'svelte-spa-router';
   import JumpingText from '../components/JumpingText.svelte';
+  import Points from '../components/Points.svelte';
   import Quiz from './Home/Quiz.svelte';
   import Test from './Home/Test.svelte';
   import Learn from './Home/Learn.svelte';
