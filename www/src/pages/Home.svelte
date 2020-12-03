@@ -28,12 +28,12 @@
   import Router from 'svelte-spa-router';
   import JumpingText from '../components/JumpingText.svelte';
   import Points from '../components/Points.svelte';
-  import Quiz from './Home/Quiz.svelte';
+  import QuizHome from './Home/QuizHome.svelte';
   import Test from './Home/Test.svelte';
   import Learn from './Home/Learn.svelte';
 
   const routes = {
-    '/': Quiz,
+    '/': QuizHome,
     '/test': Test,
     '/learn': Learn,
   };
