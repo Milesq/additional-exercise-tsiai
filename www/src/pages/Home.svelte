@@ -22,7 +22,13 @@
   </div>
 </div>
 
-<Router {routes} />
+<div class="container">
+  <div class="section">
+    <div class="columns">
+      <Router {routes} />
+    </div>
+  </div>
+</div>
 
 <script>
   import Router from 'svelte-spa-router';
