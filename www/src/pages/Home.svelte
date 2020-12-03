@@ -32,7 +32,7 @@
 <script>
   import Router from 'svelte-spa-router';
   import JumpingText from '../components/JumpingText.svelte';
-  import Quiz from '../components/Quiz.svelte';
+  import Quiz from './Home/Quiz.svelte';
   import Test from './Home/Test.svelte';
   import Learn from './Home/Learn.svelte';
 

@@ -47,12 +47,16 @@
           <div class="columns">
             <div
               class="column is-4 is-flex is-justify-content-center is-offset-2">
-              <button
-                class="button is-outlined is-transitioned is-rounded is-info">Nauka</button>
+              <a
+                use:link
+                href="/learn"
+                class="button is-outlined is-transitioned is-rounded is-info">Nauka</a>
             </div>
             <div class="column is-4 is-flex is-justify-content-center">
-              <button
-                class="button is-outlined is-transitioned is-rounded is-danger">Egzamin</button>
+              <a
+                use:link
+                href="/test"
+                class="button is-outlined is-transitioned is-rounded is-danger">Egzamin</a>
             </div>
           </div>
         </div>
@@ -60,3 +64,7 @@
     </div>
   </div>
 </div>
+
+<script>
+  import { link } from 'svelte-spa-router';
+</script>
