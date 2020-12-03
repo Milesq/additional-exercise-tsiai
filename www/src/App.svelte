@@ -6,7 +6,7 @@
   import Home from './pages/Home.svelte';
 
   const routes = {
-    '/': Home,
     '/admin': Admin,
+    '/*': Home,
   };
 </script>

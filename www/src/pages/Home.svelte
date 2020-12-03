@@ -27,9 +27,18 @@
   </div>
 </div>
 
-<Quiz />
+<Router {routes} />
 
 <script>
+  import Router from 'svelte-spa-router';
   import JumpingText from '../components/JumpingText.svelte';
   import Quiz from '../components/Quiz.svelte';
+  import Test from './Home/Test.svelte';
+  import Learn from './Home/Learn.svelte';
+
+  const routes = {
+    '/': Quiz,
+    '/test': Test,
+    '/learn': Learn,
+  };
 </script>
