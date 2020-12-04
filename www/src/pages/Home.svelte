@@ -13,7 +13,7 @@
 
   <div class="navbar-menu">
     <div class="navbar-end">
-      <div class="navbar-item has-dropdown is-hoverable">
+      <div on:click={() => (isPointsDropdownActive = !isPointsDropdownActive)} class="navbar-item has-dropdown is-hoverable" class:is-active={isPointsDropdownActive}>
         <div class="navbar-link">Wyniki</div>
 
         <Points />
@@ -37,6 +37,8 @@
   import QuizHome from './Home/QuizHome.svelte';
   import Test from './Home/Test.svelte';
   import Learn from './Home/Learn.svelte';
+
+  let isPointsDropdownActive = false;
 
   const routes = {
     '/': QuizHome,
