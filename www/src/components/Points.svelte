@@ -6,8 +6,8 @@
 </div>
 
 <script>
-import persist from '../utils/persist';
+  import persist from '../utils/persist';
 
-const inARow = persist('points-in-a-row', 0);
-const total = persist('total-points', 0);
+  const inARow = persist('points-in-a-row', 0);
+  const total = persist('total-points', 0);
 </script>
