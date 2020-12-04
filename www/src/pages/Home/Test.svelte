@@ -17,10 +17,6 @@
           placeholder="Tłumaczenie" />
       </div>
     </div>
-    correctInRow:
-    {$correctInRow}
-    correctTotal:
-    {$correctTotal}
 
     <button class="button mt-6" {disabled} on:click={check}>Sprawdź</button>
   </div>
