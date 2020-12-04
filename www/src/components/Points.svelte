@@ -6,10 +6,7 @@
 </div>
 
 <script>
-  import { getContext } from "svelte";
+  import { getContext } from 'svelte';
 
-  const {
-    correctInRow,
-    correctTotal
-  } = getContext('persistentStores');
+  const { correctInRow, correctTotal } = getContext('persistentStores');
 </script>

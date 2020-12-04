@@ -17,8 +17,10 @@
           placeholder="Tłumaczenie" />
       </div>
     </div>
-    correctInRow: {$correctInRow}
-    correctTotal: {$correctTotal}
+    correctInRow:
+    {$correctInRow}
+    correctTotal:
+    {$correctTotal}
 
     <button class="button mt-6" {disabled} on:click={check}>Sprawdź</button>
   </div>
@@ -34,10 +36,7 @@
   let userWord = '';
   let disabled = false;
 
-  const {
-    correctInRow,
-    correctTotal
-  } = getContext('persistentStores');
+  const { correctInRow, correctTotal } = getContext('persistentStores');
 
   function chooseWord() {
     currentWord = words[rand(0, words.length)];
@@ -62,7 +61,10 @@
   async function correct() {
     correctInRow.update(x => x + 1);
     correctTotal.update(x => x + 1);
-    const particles = [[null, null], [null, null, null]].map(arr => arr.map(() => randomParticle()));
+    const particles = [
+      [null, null],
+      [null, null, null],
+    ].map(arr => arr.map(() => randomParticle()));
 
     for (const particle of particles) {
       p(particle);

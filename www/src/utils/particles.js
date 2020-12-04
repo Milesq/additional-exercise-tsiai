@@ -196,6 +196,4 @@ function randomParticle() {
   };
 }
 
-export {
-  randomParticle,
-};
+export { randomParticle };
