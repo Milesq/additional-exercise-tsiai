@@ -5,7 +5,7 @@
 
   <div
     class="notification is-flex is-align-items-center is-flex-direction-column">
-    <div class="box tag is-info is-large"> { currentWord.english || '' } </div>
+    <div class="box tag is-info is-large">{currentWord.english || ''}</div>
 
     <div class="columns">
       <div class="column">
@@ -14,29 +14,33 @@
           width=""
           class="input is-success is-rounded mt-2"
           type="text"
-          placeholder="Tłumaczenie"
-        />
+          placeholder="Tłumaczenie" />
       </div>
     </div>
+    correctInRow: {$correctInRow}
+    correctTotal: {$correctTotal}
 
-
-    <button class="button mt-6" on:click={next}>Sprawdź</button>
+    <button class="button mt-6" {disabled} on:click={check}>Sprawdź</button>
   </div>
 </div>
 
 <script>
   import { onMount } from 'svelte';
-  import merge from 'lodash.merge';
-  import clone from 'lodash.clonedeep';
-  import { delay, p, randomColor, rand } from '../../utils';
+  import { delay, p, rand, randomParticle } from '../../utils';
+  import persist from '../../utils/persist';
   import query, { gql } from '../../utils/graphqlClient';
 
   let words = [];
   let currentWord = {};
   let userWord = '';
+  let disabled = false;
+
+  const correctInRow = persist('points-in-a-row', 0);
+  const correctTotal = persist('total-points', 0);
 
   function chooseWord() {
     currentWord = words[rand(0, words.length)];
+    userWord = '';
   }
 
   onMount(async () => {
@@ -54,36 +58,33 @@
     chooseWord();
   });
 
-  async function next() {
-    const defualtParticle = {
-      nextBombDelay: 5,
-      disappearance_speed: 0.25,
-      particlesPerPoint: 30,
-      seriesCount: 40,
-      startPoint: {
-        x: 150,
-        y: window.innerHeight - 10,
-        step: {
-          x: 0,
-          y: 2,
-        },
-      },
-    };
+  async function correct() {
+    correctInRow.update(x => x + 1);
+    correctTotal.update(x => x + 1);
+    const particles = [[null, null], [null, null, null]].map(arr => arr.map(() => randomParticle()));
 
-    p([
-      merge(clone(defualtParticle), {
-        color: randomColor(),
-        startPoint: {
-          x: window.innerWidth - 150
-        }
-      }),
-      merge(clone(defualtParticle), {
-        color: randomColor(),
-      }),
-    ]);
+    for (const particle of particles) {
+      p(particle);
+      await delay(300);
+    }
+  }
 
-    await delay(2300);
+  function incorrect() {
+    alert('poprawne tłumaczenie to: ' + currentWord.original);
+    correctInRow.set(0);
+  }
+
+  async function check() {
+    disabled = true;
+    if (
+      currentWord.original.toLocaleLowerCase() === userWord.toLocaleLowerCase()
+    ) {
+      await correct();
+    } else {
+      incorrect();
+    }
 
     chooseWord();
+    disabled = false;
   }
 </script>

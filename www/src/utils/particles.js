@@ -1,4 +1,4 @@
-import { delay, floor, rand } from '.';
+import { delay, floor, rand, randomColor } from '.';
 
 /**
  * @author Milesq
@@ -177,3 +177,25 @@ export default function (bombs) {
     paint();
   });
 }
+
+function randomParticle() {
+  return {
+    color: randomColor(),
+    nextBombDelay: 10,
+    disappearance_speed: 0.2,
+    particlesPerPoint: 20,
+    seriesCount: 30,
+    startPoint: {
+      x: 150,
+      y: 150,
+      step: {
+        x: -2,
+        y: -0.8,
+      },
+    },
+  };
+}
+
+export {
+  randomParticle,
+};

@@ -5,13 +5,16 @@
 
   <div
     class="notification is-flex is-align-items-center is-flex-direction-column">
-    <div class="box tag is-info is-large"> { currentWord.english || '' } </div>
+    <div class="box tag is-info is-large">{currentWord.english || ''}</div>
     <div
       class="box tag is-success is-large mt-2 response"
       class:is-blured={isBlured}>
       {currentWord.original}
     </div>
-    <button class="button mt-6" disabled={!isBlured} on:click={next}>Następny</button>
+    <button
+      class="button mt-6"
+      disabled={!isBlured}
+      on:click={next}>Następny</button>
   </div>
 </div>
 
@@ -67,8 +70,8 @@
       merge(clone(defualtParticle), {
         color: randomColor(),
         startPoint: {
-          x: window.innerWidth - 150
-        }
+          x: window.innerWidth - 150,
+        },
       }),
       merge(clone(defualtParticle), {
         color: randomColor(),

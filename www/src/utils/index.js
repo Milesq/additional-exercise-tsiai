@@ -1,5 +1,5 @@
 import delay from './delay';
 import { floor, rand, randomColor } from './math';
-import p from './particles';
+import p, { randomParticle } from './particles';
 
-export { delay, floor, rand, p, randomColor };
+export { delay, floor, rand, p, randomColor, randomParticle };
