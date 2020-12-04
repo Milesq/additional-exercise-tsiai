@@ -5,10 +5,10 @@ const persist = (key, defaultValue) => {
   const store = writable(JSON.parse(currentEl) || defaultValue);
 
   store.subscribe(newVal => {
-    localStorage.setItem(key, JSON.stringify(newVal))
-  })
+    localStorage.setItem(key, JSON.stringify(newVal));
+  });
 
   return store;
-}
+};
 
 export default persist;
