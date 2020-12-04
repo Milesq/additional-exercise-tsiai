@@ -25,9 +25,8 @@
 </div>
 
 <script>
-  import { onMount } from 'svelte';
+  import { onMount, getContext } from 'svelte';
   import { delay, p, rand, randomParticle } from '../../utils';
-  import persist from '../../utils/persist';
   import query, { gql } from '../../utils/graphqlClient';
 
   let words = [];
@@ -35,8 +34,10 @@
   let userWord = '';
   let disabled = false;
 
-  const correctInRow = persist('points-in-a-row', 0);
-  const correctTotal = persist('total-points', 0);
+  const {
+    correctInRow,
+    correctTotal
+  } = getContext('persistentStores');
 
   function chooseWord() {
     currentWord = words[rand(0, words.length)];

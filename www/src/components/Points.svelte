@@ -1,13 +1,15 @@
 <div class="navbar-dropdown">
   <div class="navbar-item">Poprawnych</div>
   <hr class="navbar-divider" />
-  <div class="navbar-item">Rzędem: {$inARow}</div>
-  <div class="navbar-item">Razem: {$total}</div>
+  <div class="navbar-item">Rzędem: {$correctInRow}</div>
+  <div class="navbar-item">Razem: {$correctTotal}</div>
 </div>
 
 <script>
-  import persist from '../utils/persist';
+  import { getContext } from "svelte";
 
-  const inARow = persist('points-in-a-row', 0);
-  const total = persist('total-points', 0);
+  const {
+    correctInRow,
+    correctTotal
+  } = getContext('persistentStores');
 </script>

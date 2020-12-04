@@ -30,6 +30,7 @@
     "lodash.merge": "^4.6.2",
     "lodash.pick": "^4.4.0",
     "svelte": "^3.29.7",
+    "svelte-persistent-store": "^0.1.4",
     "svelte-spa-router": "^3.0.5"
   },
   "devDependencies": {
