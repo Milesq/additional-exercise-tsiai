@@ -181,16 +181,16 @@ export default function (bombs) {
 function randomParticle() {
   return {
     color: randomColor(),
-    nextBombDelay: 10,
-    disappearance_speed: 0.2,
-    particlesPerPoint: 20,
-    seriesCount: 30,
+    nextBombDelay: 100,
+    disappearance_speed: .05,
+    particlesPerPoint: rand(15, 20),
+    seriesCount: rand(1, 3),
     startPoint: {
-      x: 150,
-      y: 150,
+      x: rand(150, window.innerWidth - 150),
+      y: rand(150, window.innerHeight - 150),
       step: {
-        x: -2,
-        y: -0.8,
+        x: rand(-2, 2),
+        y: rand(0, 10),
       },
     },
   };

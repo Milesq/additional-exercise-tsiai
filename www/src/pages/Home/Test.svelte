@@ -60,11 +60,13 @@
     const particles = [
       [null, null],
       [null, null, null],
+      [null],
+      [null, null, null, null],
     ].map(arr => arr.map(() => randomParticle()));
 
     for (const particle of particles) {
       p(particle);
-      await delay(300);
+      await delay(rand(200, 500));
     }
   }
 
