@@ -24,7 +24,7 @@ describe('listing words', () => {
   let query
 
   beforeEach(() => {
-    query = createTestClient(server).query
+    { query } = createTestClient(server)
     mockingoose(Word).toReturn(content)
   })
 
